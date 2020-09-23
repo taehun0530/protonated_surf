@@ -1,0 +1,70 @@
+&CONTROL
+   calculation      = 'relax'
+   verbosity        = 'high'
+   restart_mode     = 'from_scratch'
+   wf_collect       = .true.
+   nstep            = 400
+   tprnfor          = .true.
+   etot_conv_thr    = 1e-06
+   disk_io          = 'low'
+   pseudo_dir       = '/home01/x1837a02/program/pp_oncv/'
+/
+&SYSTEM
+   tot_charge       = 0
+   ecutwfc          = 80.0
+   ecutrho          = 320.0
+   nosym            = .false.
+   occupations      = 'smearing'
+   degauss          = 0.01
+   smearing         = 'gaussian'
+   nspin            = 1
+   input_dft        = 'scan'
+   esm_bc           = 'bc1'
+   ntyp             = 3
+   nat              = 13
+   ibrav            = 0
+/
+&ELECTRONS
+   conv_thr         = 1e-06
+   mixing_mode      = 'plain'
+   mixing_beta      = 0.3
+   diagonalization  = 'david'
+   startingwfc      = 'atomic+random'
+   electron_maxstep = 800
+/
+&IONS
+   ion_dynamics     = 'bfgs'
+   pot_extrapolation = 'none'
+   wfc_extrapolation = 'none'
+/
+&CELL
+   cell_dynamics    = 'bfgs'
+/
+
+ATOMIC_SPECIES
+Rh 102.9055 Rh_ONCV_PBE-1.2.upf
+Cu 63.546 Cu_ONCV_PBE-1.2.upf
+O 15.999 O_ONCV_PBE-1.2.upf
+
+K_POINTS automatic
+8 8 1  0 0 0
+
+CELL_PARAMETERS angstrom
+3.06329011920000 0.00000000000000 0.00000000000000
+-1.53164505960000 2.65288706240000 0.00000000000000
+0.00000000000000 0.00000000000000 32.11770176033311
+
+ATOMIC_POSITIONS angstrom
+Rh 0.0000000000 0.0000000000 16.0588501099 0 0 0
+Rh 1.5316604419 0.8842868578 21.7557909837 
+Rh -0.0000153379 1.7686002816 10.3619077468 
+Cu 0.0000000000 0.0000000000 7.5000000000 
+Cu 0.0000000000 0.0000000000 24.6177017603 
+Cu 1.5316604419 0.8842868578 13.2337449243 
+Cu -0.0000153379 1.7686002816 18.8839568361 
+O 0.0000000000 0.0000000000 9.3321071157 
+O 0.0000000000 0.0000000000 22.7855945933 
+O 1.5316604419 0.8842868578 15.0454818557 0 0 0
+O 1.5316604419 0.8842868578 11.3898258758 
+O -0.0000153379 1.7686002816 20.7278728034 
+O -0.0000153379 1.7686002816 17.0722168234 0 0 0
